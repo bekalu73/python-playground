@@ -15,6 +15,7 @@ import sys
 import os
 
 print("=== VIRTUAL ENVIRONMENTS ===")
+# Note: Virtual environments isolate project dependencies - prevents version conflicts
 
 print("""
 Virtual Environment Commands:
@@ -44,6 +45,7 @@ print(f"Python executable: {sys.executable}")
 print(f"Python path: {sys.path[0]}")
 
 print("\n=== PIP PACKAGE MANAGEMENT ===")
+# Note: pip is Python's package installer - manages dependencies from PyPI
 
 print("""
 Common pip commands:
@@ -90,6 +92,7 @@ except Exception as e:
     print(f"Could not run pip freeze: {e}")
 
 print("\n=== REQUIREMENTS.TXT ===")
+# Note: requirements.txt lists project dependencies - enables reproducible environments
 
 # Example requirements.txt content
 requirements_content = """# Web framework
@@ -123,6 +126,7 @@ with open("requirements.txt", "w") as f:
 print("✓ Created sample requirements.txt")
 
 print("\n=== PACKAGE STRUCTURE ===")
+# Note: Proper package structure makes code reusable and distributable
 
 print("""
 Typical Python package structure:
@@ -144,6 +148,7 @@ my_package/
 """)
 
 print("\n=== CREATING A SIMPLE PACKAGE ===")
+# Note: __init__.py makes a directory a Python package - can be empty or contain initialization code
 
 # Create a simple package structure
 os.makedirs("my_sample_package", exist_ok=True)
@@ -235,6 +240,7 @@ except ImportError as e:
     print(f"Could not import package: {e}")
 
 print("\n=== SETUP.PY EXAMPLE ===")
+# Note: setup.py defines package metadata and dependencies for distribution
 
 setup_content = '''from setuptools import setup, find_packages
 
@@ -280,6 +286,7 @@ print("Example setup.py:")
 print(setup_content[:500] + "...")
 
 print("\n=== BEST PRACTICES ===")
+# Note: Following best practices ensures maintainable, professional Python projects
 
 best_practices = """
 1. Always use virtual environments for projects

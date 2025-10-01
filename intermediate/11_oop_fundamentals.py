@@ -12,6 +12,7 @@ Key Points:
 """
 
 print("=== BASIC CLASS DEFINITION ===")
+# Note: Classes are blueprints for objects - define attributes and methods
 
 class Dog:
     """A simple Dog class"""
@@ -55,6 +56,7 @@ print(dog1.sleep())
 print(dog2.bark())
 
 print("\n=== INSTANCE VS CLASS VARIABLES ===")
+# Note: Instance variables are unique per object, class variables are shared by all instances
 
 class Counter:
     """Demonstrates instance vs class variables"""
@@ -92,6 +94,7 @@ print(counter2.get_info())  # Counter B: 1 (Total counters: 3)
 print(counter3.get_info())  # Counter C: 0 (Total counters: 3)
 
 print("\n=== METHODS TYPES ===")
+# Note: Instance methods need 'self', class methods use 'cls', static methods are independent
 
 class MathUtils:
     """Demonstrates different types of methods"""
@@ -131,6 +134,7 @@ print(f"Add numbers: {MathUtils.add_numbers(5, 3)}")
 print(f"Add numbers: {math_util.add_numbers(5, 3)}")
 
 print("\n=== PRACTICAL EXAMPLE: BANK ACCOUNT ===")
+# Note: Real-world classes combine data (attributes) and behavior (methods) logically
 
 class BankAccount:
     """A practical bank account class"""
@@ -224,6 +228,7 @@ interest = BankAccount.calculate_interest(1000, 0.05, 2)
 print(f"\nInterest calculation: ${interest}")
 
 print("\n=== OBJECT IDENTITY AND EQUALITY ===")
+# Note: 'is' checks if same object in memory, '==' checks if values are equal
 
 class Person:
     """Simple person class for identity demonstration"""

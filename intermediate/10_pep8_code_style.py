@@ -12,6 +12,7 @@ Key Points:
 """
 
 print("=== PEP 8 NAMING CONVENTIONS ===")
+# Note: Consistent naming makes code readable - snake_case for variables/functions, PascalCase for classes
 
 # ✅ CORRECT naming examples
 
@@ -55,6 +56,7 @@ class DatabaseConnection:
 print("✅ Proper naming conventions demonstrated")
 
 print("\n=== CODE LAYOUT ===")
+# Note: Proper layout improves readability - 4 spaces, proper spacing around operators
 
 # ✅ CORRECT indentation (4 spaces)
 def process_data(data_list):
@@ -98,6 +100,7 @@ user_data = {
 print("✅ Proper code layout demonstrated")
 
 print("\n=== IMPORT ORGANIZATION ===")
+# Note: Organized imports make dependencies clear - standard library first, then third-party, then local
 
 print("""
 ✅ CORRECT import order:
@@ -120,6 +123,7 @@ from . import sibling_module
 """)
 
 print("\n=== LINE LENGTH ===")
+# Note: 79 character limit ensures code fits on most screens and is readable
 
 # ✅ CORRECT: Lines should be <= 79 characters
 short_message = "This line is within the 79 character limit"
@@ -141,6 +145,7 @@ result = some_function(
 print("✅ Proper line length management demonstrated")
 
 print("\n=== COMMENTS AND DOCSTRINGS ===")
+# Note: Good documentation explains what, why, and how - docstrings for functions, comments for complex logic
 
 def calculate_compound_interest(principal, rate, time, compound_frequency=1):
     """
@@ -174,6 +179,7 @@ x = x + 1  # Increment x by 1
 print("✅ Proper comments and docstrings demonstrated")
 
 print("\n=== COMMON PEP 8 VIOLATIONS TO AVOID ===")
+# Note: Avoiding common mistakes makes your code look professional and maintainable
 
 print("""
 ❌ AVOID these common mistakes:
@@ -201,6 +207,7 @@ print("""
 """)
 
 print("\n=== TOOLS FOR PEP 8 COMPLIANCE ===")
+# Note: Automated tools help maintain consistent style - integrate them into your workflow
 
 tools_info = """
 Useful tools for maintaining PEP 8 compliance:
