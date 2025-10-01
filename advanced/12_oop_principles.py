@@ -11,6 +11,7 @@ Key Points:
 """
 
 print("=== INHERITANCE BASICS ===")
+# Note: Inheritance allows classes to inherit attributes and methods from parent classes
 
 # Base class (Parent class)
 class Animal:
@@ -78,6 +79,7 @@ print(dog.fetch())
 print(cat.climb())
 
 print("\n=== ENCAPSULATION ===")
+# Note: Encapsulation hides internal data - use _ for protected, __ for private attributes
 
 class BankAccount:
     """Demonstrates encapsulation with private attributes"""
@@ -152,6 +154,7 @@ except AttributeError:
 print(f"Private PIN (name mangled): {account._BankAccount__pin}")
 
 print("\n=== POLYMORPHISM ===")
+# Note: Polymorphism allows different classes to implement the same interface differently
 
 class Shape:
     """Base class for shapes"""
@@ -223,6 +226,7 @@ for shape in shapes:
     print(f"{shape.name}: Area = {shape.area():.2f}, Perimeter = {shape.perimeter():.2f}")
 
 print("\n=== MULTIPLE INHERITANCE ===")
+# Note: Multiple inheritance allows inheriting from multiple classes - use mixins for abilities
 
 class Flyable:
     """Mixin class for flying ability"""
@@ -266,6 +270,7 @@ print(duck.swim())        # From Swimmable
 print(f"Duck MRO: {Duck.__mro__}")
 
 print("\n=== ADVANCED INHERITANCE EXAMPLE ===")
+# Note: Real-world inheritance creates hierarchies that model relationships naturally
 
 class Employee:
     """Base employee class"""

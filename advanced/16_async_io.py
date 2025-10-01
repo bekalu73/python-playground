@@ -16,6 +16,7 @@ import time
 import random
 
 print("=== BASIC ASYNC/AWAIT ===")
+# Note: async/await enables concurrent programming - good for I/O bound tasks
 
 async def hello_async():
     """Simple async function"""
@@ -30,6 +31,7 @@ result = asyncio.run(hello_async())
 print(f"Result: {result}")
 
 print("\n=== ASYNC VS SYNC COMPARISON ===")
+# Note: Async runs tasks concurrently (not parallel) - one thread, cooperative multitasking
 
 def sync_task(name, duration):
     """Synchronous task"""
@@ -75,6 +77,7 @@ async def run_async_tasks():
 asyncio.run(run_async_tasks())
 
 print("\n=== CREATING AND MANAGING TASKS ===")
+# Note: Tasks run concurrently - create with create_task(), wait with gather()
 
 async def countdown(name, count):
     """Countdown task"""
@@ -99,6 +102,7 @@ async def task_management_demo():
 asyncio.run(task_management_demo())
 
 print("\n=== ASYNC CONTEXT MANAGERS ===")
+# Note: Async context managers use __aenter__ and __aexit__ for async resource management
 
 class AsyncFileManager:
     """Async context manager example"""
@@ -131,6 +135,7 @@ async def async_context_demo():
 asyncio.run(async_context_demo())
 
 print("\n=== ASYNC GENERATORS ===")
+# Note: Async generators yield values asynchronously - use 'async for' to iterate
 
 async def async_number_generator(start, end):
     """Async generator"""
@@ -147,6 +152,7 @@ async def async_generator_demo():
 asyncio.run(async_generator_demo())
 
 print("\n=== ERROR HANDLING IN ASYNC CODE ===")
+# Note: Handle async errors with try/except or return_exceptions=True in gather()
 
 async def risky_task(task_id, should_fail=False):
     """Task that might fail"""
@@ -192,6 +198,7 @@ async def error_handling_demo():
 asyncio.run(error_handling_demo())
 
 print("\n=== PRACTICAL EXAMPLE: WEB SCRAPING SIMULATION ===")
+# Note: Async shines for I/O operations like web requests - much faster than sequential
 
 async def fetch_url(session_id, url, delay):
     """Simulate fetching a URL"""
@@ -250,6 +257,7 @@ async def web_scraping_demo():
 asyncio.run(web_scraping_demo())
 
 print("\n=== ASYNC PATTERNS ===")
+# Note: Producer-consumer pattern with async queues - common for processing workflows
 
 async def producer(queue, name, count):
     """Producer that adds items to queue"""
@@ -300,6 +308,7 @@ async def producer_consumer_demo():
 asyncio.run(producer_consumer_demo())
 
 print("\n=== TIMEOUTS AND CANCELLATION ===")
+# Note: Use wait_for() for timeouts, cancel() to stop tasks - important for robust apps
 
 async def long_running_task(name, duration):
     """Task that takes a long time"""

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Advanced Level Exam - Interactive</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #9b59b6;
+            padding-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .question {
+            margin: 25px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .question h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .code-block {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+            border-left: 4px solid #9b59b6;
+        }
+        .options {
+            margin: 15px 0;
+        }
+        .option {
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.7);
+            border: 2px solid transparent;
+        }
+        .option:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateX(5px);
+        }
+        .option.selected {
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+            color: white;
+            border-color: #e74c3c;
+        }
+        .option.correct {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border-color: #27ae60;
+        }
+        .option.incorrect {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            border-color: #e74c3c;
+        }
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        .answer-box {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #9b59b6;
+            animation: slideDown 0.5s ease;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .answer-box.show {
+            display: block;
+        }
+        .answer-box.correct {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            color: #2c3e50;
+        }
+        .answer-box.incorrect {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #2c3e50;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin: 30px auto;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .submit-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .results {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+        }
+        .score {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        code {
+            background-color: rgba(0,0,0,0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Python Advanced Level Exam</h1>
+        <p style="text-align: center; color: #666; font-size: 18px;">Master-level concepts with instant feedback</p>
+        
+        <div id="results" class="results">
+            <div class="score" id="scoreDisplay"></div>
+        </div>
+        
+        <form id="examForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <h3>1. What does super() do in Python inheritance?</h3>
+                <div class="code-block">class Child(Parent):
+    def __init__(self, name):
+        super().__init__(name)
+        self.child_attr = "value"</div>
+                <div class="options">
+                    <div class="option" data-value="a">
+                        <input type="radio" name="q1" value="a" id="q1a">
+                        <label for="q1a">Creates a new parent class</label>
+                    </div>
+                    <div class="option" data-value="b">
+                        <input type="radio" name="q1" value="b" id="q1b">
+                        <label for="q1b">Calls the parent class method</label>
+                    </div>
+                    <div class="option" data-value="c">
+                        <input type="radio" name="q1" value="c" id="q1c">
+                        <label for="q1c">Deletes the parent class</label>
+                    </div>
+                    <div class="option" data-value="d">
+                        <input type="radio" name="q1" value="d" id="q1d">
+                        <label for="q1d">Makes the class abstract</label>
+                    </div>
+                </div>
+                <div class="answer-box" id="answer-q1">
+                    <strong>✅ Correct Answer: B - Calls the parent class method</strong><br>
+                    <em>super() allows you to extend parent functionality rather than completely overriding it.</em>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h3>2. Which magic method is called when using the + operator?</h3>
+                <div class="code-block">result = obj1 + obj2</div>
+                <div class="options">
+                    <div class="option" data-value="a">
+                        <input type="radio" name="q2" value="a" id="q2a">
+                        <label for="q2a">__plus__()</label>
+                    </div>
+                    <div class="option" data-value="b">
+                        <input type="radio" name="q2" value="b" id="q2b">
+                        <label for="q2b">__add__()</label>
+                    </div>
+                    <div class="option" data-value="c">
+                        <input type="radio" name="q2" value="c" id="q2c">
+                        <label for="q2c">__sum__()</label>
+                    </div>
+                    <div class="option" data-value="d">
+                        <input type="radio" name="q2" value="d" id="q2d">
+                        <label for="q2d">__combine__()</label>
+                    </div>
+                </div>
+                <div class="answer-box" id="answer-q2">
+                    <strong>✅ Correct Answer: B - __add__()</strong><br>
+                    <em>__add__() enables operator overloading, allowing custom objects to work with the + operator.</em>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <h3>3. What keyword is used to create a generator function?</h3>
+                <div class="code-block">def my_generator():
+    ??? 1
+    ??? 2
+    ??? 3</div>
+                <div class="options">
+                    <div class="option" data-value="a">
+                        <input type="radio" name="q3" value="a" id="q3a">
+                        <label for="q3a">return</label>
+                    </div>
+                    <div class="option" data-value="b">
+                        <input type="radio" name="q3" value="b" id="q3b">
+                        <label for="q3b">yield</label>
+                    </div>
+                    <div class="option" data-value="c">
+                        <input type="radio" name="q3" value="c" id="q3c">
+                        <label for="q3c">generate</label>
+                    </div>
+                    <div class="option" data-value="d">
+                        <input type="radio" name="q3" value="d" id="q3d">
+                        <label for="q3d">produce</label>
+                    </div>
+                </div>
+                <div class="answer-box" id="answer-q3">
+                    <strong>✅ Correct Answer: B - yield</strong><br>
+                    <em>yield creates a generator function that pauses execution and can be resumed, making it memory-efficient.</em>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <h3>4. What does the regex pattern \d+ match?</h3>
+                <div class="options">
+                    <div class="option" data-value="a">
+                        <input type="radio" name="q4" value="a" id="q4a">
+                        <label for="q4a">One or more letters</label>
+                    </div>
+                    <div class="option" data-value="b">
+                        <input type="radio" name="q4" value="b" id="q4b">
+                        <label for="q4b">One or more digits</label>
+                    </div>
+                    <div class="option" data-value="c">
+                        <input type="radio" name="q4" value="c" id="q4c">
+                        <label for="q4c">One or more whitespace characters</label>
+                    </div>
+                    <div class="option" data-value="d">
+                        <input type="radio" name="q4" value="d" id="q4d">
+                        <label for="q4d">Exactly one digit</label>
+                    </div>
+                </div>
+                <div class="answer-box" id="answer-q4">
+                    <strong>✅ Correct Answer: B - One or more digits</strong><br>
+                    <em>\d matches any digit (0-9), and + means "one or more". So \d+ matches consecutive digits.</em>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <h3>5. What keyword is used to define an asynchronous function?</h3>
+                <div class="options">
+                    <div class="option" data-value="a">
+                        <input type="radio" name="q5" value="a" id="q5a">
+                        <label for="q5a">async</label>
+                    </div>
+                    <div class="option" data-value="b">
+                        <input type="radio" name="q5" value="b" id="q5b">
+                        <label for="q5b">await</label>
+                    </div>
+                    <div class="option" data-value="c">
+                        <input type="radio" name="q5" value="c" id="q5c">
+                        <label for="q5c">asyncio</label>
+                    </div>
+                    <div class="option" data-value="d">
+                        <input type="radio" name="q5" value="d" id="q5d">
+                        <label for="q5d">concurrent</label>
+                    </div>
+                </div>
+                <div class="answer-box" id="answer-q5">
+                    <strong>✅ Correct Answer: A - async</strong><br>
+                    <em>"async" keyword defines an asynchronous function (coroutine). "await" is used inside async functions.</em>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Advanced Exam</button>
+        </form>
+
+    </div>
+
+    <script>
+        const correctAnswers = {
+            q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'a'
+        };
+
+        // Add click handlers for options
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input[type="radio"]');
+                if (!input.disabled) {
+                    input.checked = true;
+                    
+                    // Remove selected class from siblings
+                    const siblings = this.parentNode.querySelectorAll('.option');
+                    siblings.forEach(sibling => sibling.classList.remove('selected'));
+                    
+                    // Add selected class to this option
+                    this.classList.add('selected');
+                }
+            });
+        });
+
+        document.getElementById('examForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let score = 0;
+            let total = Object.keys(correctAnswers).length;
+
+            // Show answers for each question
+            for (let question in correctAnswers) {
+                const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                const correctAnswer = correctAnswers[question];
+                
+                let isCorrect = false;
+                if (userAnswer && userAnswer.value === correctAnswer) {
+                    score++;
+                    isCorrect = true;
+                }
+
+                // Show answer box
+                const answerBox = document.getElementById(`answer-${question}`);
+                answerBox.classList.add('show');
+                answerBox.classList.add(isCorrect ? 'correct' : 'incorrect');
+                
+                // Highlight options
+                const questionDiv = document.querySelector(`input[name="${question}"]`).closest('.question');
+                const options = questionDiv.querySelectorAll('.option');
+                
+                options.forEach(option => {
+                    const input = option.querySelector('input[type="radio"]');
+                    if (input.value === correctAnswer) {
+                        option.classList.add('correct');
+                    }
+                    if (input.checked && input.value !== correctAnswer) {
+                        option.classList.add('incorrect');
+                    }
+                    input.disabled = true;
+                });
+            }
+
+            const percentage = Math.round((score / total) * 100);
+            let gradeMessage = '';
+            if (percentage >= 95) gradeMessage = '🏆 Python Master!';
+            else if (percentage >= 85) gradeMessage = '🚀 Advanced Developer!';
+            else if (percentage >= 75) gradeMessage = '💪 Strong Skills!';
+            else if (percentage >= 65) gradeMessage = '📚 Keep Learning!';
+            else gradeMessage = '🔄 Review Advanced Concepts!';
+
+            document.getElementById('scoreDisplay').innerHTML = 
+                `${gradeMessage}<br>Score: ${score}/${total} (${percentage}%)`;
+            document.getElementById('results').style.display = 'block';
+            
+            // Disable submit button
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.innerHTML = 'Exam Completed - Review Answers Above';
+            submitBtn.disabled = true;
+            
+            // Scroll to top to see answers
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

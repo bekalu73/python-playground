@@ -12,6 +12,7 @@ Key Points:
 """
 
 print("=== BASIC GENERATORS ===")
+# Note: Generators use 'yield' to produce values on-demand - memory efficient for large datasets
 
 def simple_generator():
     """Simple generator that yields three values"""
@@ -33,6 +34,7 @@ for value in gen:
     print(f"Received: {value}")
 
 print("\n=== GENERATOR VS REGULAR FUNCTION ===")
+# Note: Regular functions return all values at once, generators yield one at a time
 
 def regular_function():
     """Regular function returns all values at once"""
@@ -61,6 +63,7 @@ for value in gen_result:
 print()
 
 print("\n=== PRACTICAL GENERATOR EXAMPLES ===")
+# Note: Generators are perfect for sequences, file processing, and infinite data streams
 
 def fibonacci_generator(n):
     """Generate Fibonacci numbers up to n"""
@@ -106,6 +109,7 @@ for line in file_reader("test_file.txt"):
     print(f"  {line}")
 
 print("\n=== GENERATOR EXPRESSIONS ===")
+# Note: Generator expressions are like list comprehensions but with () - create generators inline
 
 # Generator expression (similar to list comprehension but with parentheses)
 squares_gen = (x**2 for x in range(5))
@@ -128,6 +132,7 @@ gen_exp = (x**2 for x in range(1000))
 print(f"Generator expression size: {sys.getsizeof(gen_exp)} bytes")
 
 print("\n=== ITERATOR PROTOCOL ===")
+# Note: Iterator protocol requires __iter__ and __next__ methods - generators implement this automatically
 
 class CountDown:
     """Custom iterator using iterator protocol"""
@@ -165,6 +170,7 @@ except StopIteration:
     print("\nIteration complete")
 
 print("\n=== GENERATOR WITH SEND AND CLOSE ===")
+# Note: Generators can receive values with send() and be closed with close()
 
 def advanced_generator():
     """Generator that can receive values"""
@@ -191,6 +197,7 @@ print(gen.send(None)) # Send None, get "No input"
 gen.close()  # Close the generator
 
 print("\n=== YIELD FROM ===")
+# Note: 'yield from' delegates to another generator or iterable - cleaner than loops
 
 def sub_generator():
     """Sub-generator"""
@@ -211,6 +218,7 @@ for item in main_generator():
 print()
 
 print("\n=== PRACTICAL APPLICATIONS ===")
+# Note: Generators excel at data processing, streaming, and working with large files
 
 def batch_processor(data, batch_size):
     """Process data in batches"""
@@ -260,6 +268,7 @@ for _ in range(10):
 print()
 
 print("\n=== GENERATOR PIPELINE ===")
+# Note: Chain generators together to create data processing pipelines
 
 def numbers():
     """Generate numbers"""
@@ -284,6 +293,7 @@ result = list(pipeline)
 print(result)
 
 print("\n=== MEMORY EFFICIENCY DEMONSTRATION ===")
+# Note: Generators process data without loading everything into memory - crucial for big data
 
 def memory_efficient_processing(filename):
     """Process large file without loading all into memory"""

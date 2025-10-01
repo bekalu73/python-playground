@@ -14,6 +14,7 @@ Key Points:
 import re
 
 print("=== BASIC REGEX OPERATIONS ===")
+# Note: Regular expressions find patterns in text - powerful for validation and extraction
 
 # Sample text for demonstrations
 text = "Contact us at support@example.com or sales@company.org. Phone: 123-456-7890"
@@ -36,6 +37,7 @@ if match_from_start:
     print(f"Email at start: {match_from_start.group()}")
 
 print("\n=== COMMON REGEX PATTERNS ===")
+# Note: Learn common patterns - \d for digits, \w for word chars, \s for whitespace
 
 patterns_examples = [
     (r'\d+', "123 and 456", "Digits"),
@@ -54,6 +56,7 @@ for pattern, test_text, description in patterns_examples:
     print(f"{description:20} | Pattern: {pattern:10} | Text: '{test_text}' | Matches: {matches}")
 
 print("\n=== METACHARACTERS ===")
+# Note: Metacharacters have special meaning - use backslash to escape them literally
 
 metacharacters_info = """
 Common regex metacharacters:
@@ -83,6 +86,7 @@ Character classes:
 print(metacharacters_info)
 
 print("\n=== PHONE NUMBER VALIDATION ===")
+# Note: Validation patterns check if input matches expected format - useful for forms
 
 def validate_phone(phone):
     """Validate phone number formats"""
@@ -114,6 +118,7 @@ for phone in test_phones:
     print(f"  {phone:15} - {'Valid' if is_valid else 'Invalid'}")
 
 print("\n=== EMAIL VALIDATION ===")
+# Note: Email validation is complex - this is a basic pattern, real validation is harder
 
 def validate_email(email):
     """Validate email address"""
@@ -136,6 +141,7 @@ for email in test_emails:
     print(f"  {email:30} - {'Valid' if is_valid else 'Invalid'}")
 
 print("\n=== GROUPS AND CAPTURING ===")
+# Note: Parentheses create groups - capture parts of matches for extraction
 
 # Extract parts of a date
 date_text = "Today is 2024-03-15 and tomorrow is 2024-03-16"
@@ -155,6 +161,7 @@ if match:
     print(f"Named groups: {match.groupdict()}")
 
 print("\n=== TEXT SUBSTITUTION ===")
+# Note: re.sub() replaces matches with new text - powerful for text processing
 
 # Replace patterns with new text
 original_text = "Call us at 123-456-7890 or email support@example.com"
@@ -174,6 +181,7 @@ formatted = re.sub(name_pattern, r'\2, \1', text_with_names)
 print(f"Name format changed: {formatted}")
 
 print("\n=== FLAGS ===")
+# Note: Flags modify regex behavior - IGNORECASE, MULTILINE, DOTALL are common
 
 # Case-insensitive matching
 text_mixed_case = "Hello WORLD hello world"
@@ -202,6 +210,7 @@ matches_multiline = re.findall(pattern_start, multiline_text, re.MULTILINE)
 print(f"With MULTILINE: {matches_multiline}")
 
 print("\n=== PRACTICAL APPLICATIONS ===")
+# Note: Real-world regex applications - URL extraction, data cleaning, log parsing
 
 def extract_urls(text):
     """Extract URLs from text"""
@@ -250,6 +259,7 @@ numbers = extract_numbers(sample_text)
 print(f"  {numbers}")
 
 print("\n=== COMPILED PATTERNS ===")
+# Note: Compile patterns for better performance when using them repeatedly
 
 # Compile patterns for better performance when used multiple times
 email_compiled = re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
@@ -268,6 +278,7 @@ if phone_match:
     print(f"  Phone: {phone_match.group()}")
 
 print("\n=== DATA VALIDATION FUNCTIONS ===")
+# Note: Complex validation combines multiple patterns - lookaheads check multiple conditions
 
 def validate_password(password):
     """Validate password strength"""

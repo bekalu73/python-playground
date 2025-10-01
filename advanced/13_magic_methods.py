@@ -12,6 +12,7 @@ Key Points:
 """
 
 print("=== STRING REPRESENTATION METHODS ===")
+# Note: __str__ for human-readable output, __repr__ for developer debugging
 
 class Point:
     """Point class demonstrating string representation methods"""
@@ -39,6 +40,7 @@ points = [Point(1, 2), Point(3, 4)]
 print(f"List of points: {points}")      # Uses __repr__
 
 print("\n=== ARITHMETIC MAGIC METHODS ===")
+# Note: Magic methods enable operator overloading - make objects work with +, -, *, etc.
 
 class Vector:
     """Vector class with arithmetic operations"""
@@ -101,6 +103,7 @@ print(f"-v1 = {-v1}")
 print(f"abs(v1) = {abs(v1)}")
 
 print("\n=== COMPARISON MAGIC METHODS ===")
+# Note: Comparison methods enable sorting and comparison operators like <, >, ==
 
 class Student:
     """Student class with comparison methods"""
@@ -169,6 +172,7 @@ students.sort()
 print(f"Sorted students: {students}")
 
 print("\n=== CONTAINER MAGIC METHODS ===")
+# Note: Container methods make objects behave like lists/dicts - support indexing, iteration
 
 class CustomList:
     """Custom list-like container"""
@@ -228,6 +232,7 @@ custom_list[1] = "blueberry"
 print(f"After modification: {custom_list}")
 
 print("\n=== CALLABLE OBJECTS ===")
+# Note: __call__ makes objects callable like functions - useful for stateful functions
 
 class Multiplier:
     """Callable object that multiplies by a factor"""
@@ -254,6 +259,7 @@ print(f"triple(4) = {triple(4)}")
 print(f"Is double callable? {callable(double)}")
 
 print("\n=== CONTEXT MANAGER METHODS ===")
+# Note: Context managers work with 'with' statement - __enter__ and __exit__ methods
 
 class FileManager:
     """Custom context manager for file operations"""
@@ -287,6 +293,7 @@ with FileManager("test.txt", "w") as f:
 print("File operations completed")
 
 print("\n=== COMPREHENSIVE EXAMPLE ===")
+# Note: Combining multiple magic methods creates powerful, intuitive objects
 
 class Matrix:
     """Matrix class with multiple magic methods"""
