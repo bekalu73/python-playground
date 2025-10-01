@@ -11,6 +11,7 @@ Key Points:
 """
 
 print("=== STRING BASICS ===")
+# Note: Strings are immutable sequences - operations create new strings
 
 # Creating strings
 single_quote = 'Hello World'
@@ -31,6 +32,7 @@ print(f"Slice [7:]: {text[7:]}")
 print(f"Every 2nd character: {text[::2]}")
 
 print("\n=== STRING METHODS ===")
+# Note: Strings have many built-in methods for manipulation - they don't modify original
 
 sample_text = "  Hello, Python World!  "
 print(f"Original: '{sample_text}'")
@@ -57,6 +59,7 @@ replaced = sample_text.replace("Python", "Java")
 print(f"Replaced: {replaced}")
 
 print("\n=== STRING SPLITTING AND JOINING ===")
+# Note: split() breaks strings into lists, join() combines lists into strings
 
 # Split method
 sentence = "apple,banana,cherry,orange"
@@ -75,6 +78,7 @@ path = "/".join(["home", "user", "documents", "file.txt"])
 print(f"Path: {path}")
 
 print("\n=== STRING FORMATTING ===")
+# Note: f-strings (f'') are the modern, preferred way to format strings in Python
 
 name = "Alice"
 age = 25
@@ -94,6 +98,7 @@ print("Name: {n}, Age: {a}, Score: {s}".format(n=name, a=age, s=score))  # Named
 print("Name: %s, Age: %d, Score: %.1f" % (name, age, score))
 
 print("\n=== ADVANCED F-STRING FEATURES ===")
+# Note: f-strings can contain expressions, function calls, and formatting specifiers
 
 # Expressions in f-strings
 x, y = 10, 20
@@ -116,6 +121,7 @@ now = datetime.now()
 print(f"Current time: {now:%Y-%m-%d %H:%M:%S}")
 
 print("\n=== ESCAPE CHARACTERS ===")
+# Note: Backslash (\) escapes special characters - use raw strings r'' to ignore escapes
 
 # Common escape characters
 print("Line 1\nLine 2")           # Newline
@@ -128,6 +134,7 @@ raw_path = r"C:\Users\Alice\Documents"
 print(f"Raw string: {raw_path}")
 
 print("\n=== STRING VALIDATION ===")
+# Note: String validation methods return True/False - useful for input checking
 
 # Check string properties
 test_strings = ["123", "abc", "ABC", "Hello World", "  ", ""]

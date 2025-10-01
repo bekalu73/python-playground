@@ -12,6 +12,7 @@ Key Points:
 """
 
 print("=== LISTS BASICS ===")
+# Note: Lists are ordered, mutable collections that allow duplicates
 
 # Creating lists
 fruits = ["apple", "banana", "cherry"]
@@ -28,6 +29,7 @@ print(f"Last fruit: {fruits[-1]}")
 print(f"Slice [1:3]: {fruits[1:3]}")
 
 print("\n=== LIST METHODS ===")
+# Note: Lists have many built-in methods for adding, removing, and organizing elements
 
 # Adding elements
 fruits.append("orange")        # Add to end
@@ -62,6 +64,7 @@ numbers.reverse()
 print(f"Reversed: {numbers}")
 
 print("\n=== LIST COMPREHENSIONS ===")
+# Note: List comprehensions create new lists in a concise, readable way
 
 # Basic list comprehension
 squares = [x**2 for x in range(5)]
@@ -81,6 +84,7 @@ matrix = [[i*j for j in range(3)] for i in range(3)]
 print(f"Matrix: {matrix}")
 
 print("\n=== DICTIONARIES BASICS ===")
+# Note: Dictionaries store key-value pairs - keys must be unique and immutable
 
 # Creating dictionaries
 student = {"name": "Alice", "age": 20, "grade": "A"}
@@ -96,6 +100,7 @@ print(f"Student age: {student.get('age')}")
 print(f"Student city: {student.get('city', 'Not specified')}")  # Default value
 
 print("\n=== DICTIONARY METHODS ===")
+# Note: Dictionaries have methods for accessing keys, values, and items safely
 
 # Adding/updating
 student["city"] = "New York"
@@ -117,6 +122,7 @@ student_copy = student.copy()
 print(f"Copy: {student_copy}")
 
 print("\n=== DICTIONARY COMPREHENSIONS ===")
+# Note: Dictionary comprehensions create new dictionaries with {key: value} syntax
 
 # Basic dictionary comprehension
 squares_dict = {x: x**2 for x in range(5)}
@@ -132,6 +138,7 @@ word_lengths = {word: len(word) for word in words}
 print(f"Word lengths dict: {word_lengths}")
 
 print("\n=== NESTED STRUCTURES ===")
+# Note: You can nest lists and dictionaries to create complex data structures
 
 # List of dictionaries
 students = [

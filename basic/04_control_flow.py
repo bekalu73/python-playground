@@ -11,6 +11,7 @@ Key Points:
 """
 
 print("=== IF/ELIF/ELSE STATEMENTS ===")
+# Note: Use elif (not else if) for multiple conditions - cleaner than nested ifs
 
 def check_number(num):
     if num > 0:
@@ -25,6 +26,7 @@ for num in test_numbers:
     print(f"{num} is {check_number(num)}")
 
 print("\n=== FOR LOOPS ===")
+# Note: For loops iterate over sequences - more Pythonic than while loops for counting
 
 # Basic for loop
 fruits = ["apple", "banana", "cherry"]
@@ -48,6 +50,7 @@ for index, fruit in enumerate(fruits):
     print(f"{index}: {fruit}")
 
 print("\n=== WHILE LOOPS ===")
+# Note: While loops continue until condition becomes False - good for unknown iterations
 
 # Basic while loop
 count = 0
@@ -56,6 +59,7 @@ while count < 3:
     count += 1
 
 print("\n=== LOOP-ELSE CLAUSE ===")
+# Note: Loop-else is unique to Python - else runs only if loop completes without break
 # This is a unique Python feature!
 
 # Example 1: Loop completes normally
@@ -89,6 +93,7 @@ find_item(items, "banana")  # Found
 find_item(items, "grape")   # Not found
 
 print("\n=== BREAK AND CONTINUE ===")
+# Note: 'continue' skips current iteration, 'break' exits loop completely
 
 # Continue example
 print("Skip even numbers:")
@@ -109,6 +114,7 @@ for num in numbers:
 print()
 
 print("\n=== NESTED LOOPS ===")
+# Note: Inner loop completes fully for each iteration of outer loop
 
 # Multiplication table
 print("3x3 multiplication table:")

@@ -14,6 +14,7 @@ Key Points:
 import os
 
 print("=== BASIC FILE OPERATIONS ===")
+# Note: Always use context managers (with statement) for file operations - ensures proper cleanup
 
 # Create a sample file first
 sample_content = """Line 1: Hello World
@@ -28,6 +29,7 @@ with open("sample.txt", "w") as file:
 print("✓ Created sample.txt")
 
 print("\n=== READING FILES ===")
+# Note: Different read methods for different needs - read(), readline(), readlines()
 
 # Method 1: Read entire file
 with open("sample.txt", "r") as file:
@@ -55,6 +57,7 @@ with open("sample.txt", "r") as file:
         print(f"{i}: {line.strip()}")
 
 print("\n=== WRITING FILES ===")
+# Note: File modes determine behavior - 'w' overwrites, 'a' appends, 'r' reads only
 
 # Writing mode ('w') - overwrites existing file
 data_to_write = ["Apple\n", "Banana\n", "Cherry\n", "Date\n"]
@@ -75,6 +78,7 @@ with open("fruits.txt", "r") as file:
     print(file.read())
 
 print("\n=== FILE MODES ===")
+# Note: Choose the right mode for your needs - text vs binary, read vs write vs append
 
 # Different file modes
 modes_explanation = {
@@ -95,6 +99,7 @@ for mode, description in modes_explanation.items():
     print(f"  '{mode}': {description}")
 
 print("\n=== CONTEXT MANAGERS (WITH STATEMENT) ===")
+# Note: Context managers automatically handle resource cleanup - prevents file handle leaks
 
 # Why use context managers?
 print("Without context manager (NOT RECOMMENDED):")
@@ -113,6 +118,7 @@ with open("sample.txt", "r") as file:
 print(f"File closed after with block? {file.closed}")  # True
 
 print("\n=== ERROR HANDLING ===")
+# Note: Always handle file exceptions - FileNotFoundError, PermissionError are common
 
 # Handling file not found
 try:
@@ -129,6 +135,7 @@ except PermissionError:
     print("❌ Permission denied!")
 
 print("\n=== WORKING WITH CSV-LIKE DATA ===")
+# Note: For simple CSV data, you can use basic file operations - for complex CSV use csv module
 
 # Writing structured data
 students = [

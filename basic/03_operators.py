@@ -11,6 +11,7 @@ Key Points:
 """
 
 print("=== ARITHMETIC OPERATORS ===")
+# Note: Basic math operations - division (/) gives float, floor division (//) gives integer
 a, b = 17, 5
 
 print(f"a = {a}, b = {b}")
@@ -23,6 +24,7 @@ print(f"Modulus: {a} % {b} = {a % b}")           # Remainder
 print(f"Exponentiation: {a} ** {b} = {a ** b}")
 
 print("\n=== LOGICAL OPERATORS ===")
+# Note: Combine boolean values - 'and' needs both True, 'or' needs one True, 'not' flips value
 x, y = True, False
 print(f"x = {x}, y = {y}")
 print(f"x and y = {x and y}")
@@ -36,6 +38,7 @@ can_drive = age >= 18 and has_license
 print(f"Can drive: {can_drive}")
 
 print("\n=== COMPARISON OPERATORS ===")
+# Note: Compare values and return True/False - useful for conditions and loops
 num1, num2 = 10, 20
 print(f"num1 = {num1}, num2 = {num2}")
 print(f"Equal: {num1 == num2}")
@@ -46,6 +49,7 @@ print(f"Less or equal: {num1 <= num2}")
 print(f"Greater or equal: {num1 >= num2}")
 
 print("\n=== MEMBERSHIP OPERATORS ===")
+# Note: Check if item exists in sequence (list, string, tuple) - 'in' and 'not in'
 fruits = ["apple", "banana", "orange"]
 print(f"Fruits: {fruits}")
 print(f"'apple' in fruits: {'apple' in fruits}")
@@ -56,6 +60,7 @@ text = "Python Programming"
 print(f"'Python' in text: {'Python' in text}")
 
 print("\n=== IDENTITY OPERATORS ===")
+# Note: 'is' checks if same object in memory, '==' checks if same value
 list1 = [1, 2, 3]
 list2 = [1, 2, 3]
 list3 = list1
@@ -64,8 +69,8 @@ print(f"list1 is list2: {list1 is list2}")  # False - different objects
 print(f"list1 is list3: {list1 is list3}")  # True - same object
 print(f"list1 == list2: {list1 == list2}")  # True - same content
 
-# EXAM TRICK: Floor division vs regular division
 print(f"\n=== EXAM FOCUS ===")
+# Note: Common exam questions - remember floor division rounds down, modulus gives remainder
 print(f"7 / 3 = {7 / 3}")    # 2.333...
 print(f"7 // 3 = {7 // 3}")  # 2 (floor division)
 print(f"7 % 3 = {7 % 3}")    # 1 (remainder)

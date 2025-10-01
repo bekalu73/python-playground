@@ -8,6 +8,7 @@ Key Points:
 - Main types: int, float, str, bool, list, dict, tuple, set
 """
 
+# Note: Variables can change type at runtime - no need to declare types
 # DYNAMIC TYPING EXAMPLES
 x = 42           # int
 print(f"x = {x}, type: {type(x)}")
@@ -21,8 +22,8 @@ print(f"x = {x}, type: {type(x)}")
 x = True         # now bool
 print(f"x = {x}, type: {type(x)}")
 
-# BUILT-IN DATA TYPES
 print("\n=== BUILT-IN DATA TYPES ===")
+# Note: Python has several built-in types - numbers, strings, booleans, and collections
 
 # Numbers
 integer_num = 100
@@ -43,6 +44,7 @@ is_python_fun = True
 is_difficult = False
 print(f"Boolean: {is_python_fun}")
 
+# Note: Collections can hold different data types and are very flexible
 # Collections
 my_list = [1, 2, 3, "mixed", True]
 my_tuple = (1, 2, 3)  # immutable
@@ -54,6 +56,7 @@ print(f"Tuple: {my_tuple}")
 print(f"Dictionary: {my_dict}")
 print(f"Set: {my_set}")
 
+# Note: Use isinstance() to check types safely - better than type() comparison
 # TYPE CHECKING
 def check_type(value):
     if isinstance(value, int):

@@ -9,6 +9,7 @@ Key Points:
 - IndentationError occurs with inconsistent spacing
 """
 
+# Note: Python uses 4 spaces for indentation - this defines code blocks instead of curly braces
 # ✅ CORRECT INDENTATION
 if True:
     print("Correctly indented")
@@ -19,6 +20,7 @@ if True:
 # if True:
 # print("Missing indentation")
 
+# Note: Functions and control structures must be properly indented to work
 # PRACTICAL EXAMPLES
 def check_grade(score):
     if score >= 90:
@@ -32,6 +34,7 @@ def check_grade(score):
 check_grade(95)
 check_grade(75)
 
+# Note: Nested structures require additional indentation levels
 # LOOPS WITH PROPER INDENTATION
 numbers = [1, 2, 3, 4, 5]
 for num in numbers:

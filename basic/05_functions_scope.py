@@ -13,6 +13,7 @@ Key Points:
 """
 
 print("=== BASIC FUNCTIONS ===")
+# Note: Functions are defined with 'def' - default parameters go after required ones
 
 def greet(name="World"):
     """Function with default parameter"""
@@ -22,6 +23,7 @@ print(greet())          # Hello, World!
 print(greet("Alice"))   # Hello, Alice!
 
 print("\n=== MULTIPLE PARAMETERS ===")
+# Note: Parameters can be positional, keyword, or have default values
 
 def calculate_area(length, width, unit="sq meters"):
     """Function with multiple parameters"""
@@ -32,6 +34,7 @@ print(calculate_area(5, 3))
 print(calculate_area(5, 3, "sq feet"))
 
 print("\n=== *ARGS - VARIABLE POSITIONAL ARGUMENTS ===")
+# Note: *args collects extra positional arguments into a tuple
 
 def sum_numbers(*args):
     """Accept any number of arguments"""
@@ -54,6 +57,7 @@ def print_info(name, *subjects):
 print_info("Bob", "Math", "Science", "English")
 
 print("\n=== **KWARGS - VARIABLE KEYWORD ARGUMENTS ===")
+# Note: **kwargs collects extra keyword arguments into a dictionary
 
 def create_profile(**kwargs):
     """Accept any number of keyword arguments"""
@@ -64,6 +68,7 @@ def create_profile(**kwargs):
 create_profile(name="Alice", age=25, city="New York", job="Engineer")
 
 print("\n=== COMBINING ALL PARAMETER TYPES ===")
+# Note: Parameter order must be: required, default, *args, **kwargs
 
 def flexible_function(required, default="default", *args, **kwargs):
     """Function with all parameter types"""
@@ -75,6 +80,7 @@ def flexible_function(required, default="default", *args, **kwargs):
 flexible_function("must_have", "custom", 1, 2, 3, name="Bob", age=30)
 
 print("\n=== SCOPE EXAMPLES ===")
+# Note: Variables have local or global scope - use 'global' keyword to modify globals
 
 # Global variable
 global_var = "I'm global"
@@ -101,6 +107,7 @@ print(f"Counter: {increment()}")  # 1
 print(f"Counter: {increment()}")  # 2
 
 print("\n=== NESTED FUNCTIONS & CLOSURES ===")
+# Note: Inner functions can access outer function variables (closure)
 
 def outer_function(x):
     def inner_function(y):
@@ -111,6 +118,7 @@ add_10 = outer_function(10)
 print(f"Add 10 to 5: {add_10(5)}")  # 15
 
 print("\n=== LAMBDA FUNCTIONS ===")
+# Note: Lambda creates small anonymous functions - good for simple operations
 
 # Lambda (anonymous) functions
 square = lambda x: x ** 2
