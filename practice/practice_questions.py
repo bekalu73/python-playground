@@ -18,6 +18,7 @@ import random
 
 print("=== PRACTICE QUESTION 1: *ARGS FUNCTION ===")
 print("Write a function that sums an arbitrary list of numbers using *args.")
+# Note: *args collects variable positional arguments into a tuple
 
 def sum_numbers(*args):
     """Sum any number of arguments"""
@@ -43,6 +44,7 @@ print(f"sum_numbers_safe(1, 2, 'hello', 3) = {sum_numbers_safe(1, 2, 'hello', 3)
 print("\n" + "="*60)
 print("=== PRACTICE QUESTION 2: LIST COMPREHENSION ===")
 print('Given data = ["a","b","c"], produce ["A","B","C"] with a comprehension.')
+# Note: List comprehensions are concise way to transform lists
 
 data = ["a", "b", "c"]
 uppercase_data = [letter.upper() for letter in data]
@@ -60,6 +62,7 @@ print(f"Method 3 (map): {uppercase_data3}")
 print("\n" + "="*60)
 print("=== PRACTICE QUESTION 3: FILE I/O ===")
 print('Read log.txt, filter lines containing "ERROR", and write them to errors.log.')
+# Note: Use context managers for safe file operations
 
 # Create sample log file
 log_content = """2024-01-01 10:00:00 INFO Application started
@@ -102,6 +105,7 @@ with open("errors.log", "r") as f:
 print("\n" + "="*60)
 print("=== PRACTICE QUESTION 4: BANKACCOUNT CLASS ===")
 print("Define a BankAccount class with deposit, withdraw, and a __repr__ that recreates the object.")
+# Note: __repr__ should return a string that can recreate the object
 
 class BankAccount:
     """Bank account with deposit, withdraw, and proper representation"""
@@ -157,6 +161,7 @@ print(f"Recreated account: {account_copy}")
 print("\n" + "="*60)
 print("=== PRACTICE QUESTION 5: FIBONACCI GENERATOR ===")
 print("Create a generator for Fibonacci numbers up to 100.")
+# Note: Generators use yield to produce values on-demand
 
 def fibonacci_generator(max_value):
     """Generate Fibonacci numbers up to max_value"""
@@ -193,6 +198,7 @@ print()
 print("\n" + "="*60)
 print("=== PRACTICE QUESTION 6: REGULAR EXPRESSIONS ===")
 print("Extract all email addresses from a multi-line string using re.findall.")
+# Note: Regular expressions find patterns in text using special syntax
 
 # Sample multi-line text with emails
 email_text = """
@@ -243,6 +249,7 @@ for email in emails_complex:
 print("\n" + "="*60)
 print("=== PRACTICE QUESTION 7: ASYNC FUNCTION ===")
 print("Write an async function that concurrently fetches (mock) URLs and awaits their completion.")
+# Note: Async functions enable concurrent execution of I/O operations
 
 async def fetch_url(url, delay=None):
     """Mock URL fetching with random delay"""
@@ -329,6 +336,7 @@ asyncio.run(async_demo())
 print("\n" + "="*60)
 print("=== BONUS: COMPREHENSIVE EXAMPLE ===")
 print("Combining multiple concepts in one example")
+# Note: Real projects combine multiple Python concepts together
 
 class DataProcessor:
     """Class that combines multiple Python concepts"""
