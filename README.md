@@ -4,23 +4,39 @@
 
 This comprehensive Python study guide covers all essential concepts from basic to advanced levels, designed to help you master Python for your exam and become a proficient Python developer.
 
+Every topic now comes in **two formats** so you can learn however suits you best:
+
+- 📖 **Markdown docs (`.md`)** — read the concept, syntax, examples, common mistakes, best practices, and exercises.
+- ▶️ **Python files (`.py`)** — run the live, commented code examples.
+
 ## 🗂️ Study Structure
+
+### 📁 Setup (Start Here!)
+
+New to Python? Set up your development environment first.
+
+0. **Setup Guides**
+   - **[Introduction](setup/introduction.md)** — What Python is and how to use this playground
+   - **[Installing Python](setup/install-python.md)** — Windows, macOS & Linux + verifying the install
+   - **[Installing VS Code](setup/install-vscode.md)** — Download, install, and tour the editor
+   - **[VS Code Extensions](setup/vscode-extensions.md)** — Python, Pylance, Jupyter, Error Lens, and more
+   - **[Environment Setup & Tools](setup/environment-setup.md)** — Terminal, virtual environments, pip, running code
 
 ### 📁 Basic Concepts (Foundation Level)
 
-1. **[Syntax & Indentation](basic/01_syntax_indentation.py)**
+1. **Syntax & Indentation** — 📖 [docs](basic/01_syntax_indentation.md) · ▶️ [code](basic/01_syntax_indentation.py)
 
    - Python indentation rules
    - Code block structure
    - Common indentation errors
 
-2. **[Data Types & Dynamic Typing](basic/02_data_types.py)**
+2. **Data Types & Dynamic Typing** — 📖 [docs](basic/02_data_types.md) · ▶️ [code](basic/02_data_types.py)
 
    - Built-in data types (int, float, str, bool, list, dict, tuple, set)
    - Dynamic typing concepts
    - Type checking and conversion
 
-3. **[Operators](basic/03_operators.py)**
+3. **Operators** — 📖 [docs](basic/03_operators.md) · ▶️ [code](basic/03_operators.py)
 
    - Arithmetic operators (+, -, \*, /, //, %, \*\*)
    - Logical operators (and, or, not)
@@ -28,14 +44,14 @@ This comprehensive Python study guide covers all essential concepts from basic t
    - Membership operators (in, not in)
    - Identity operators (is, is not)
 
-4. **[Control Flow](basic/04_control_flow.py)**
+4. **Control Flow** — 📖 [docs](basic/04_control_flow.md) · ▶️ [code](basic/04_control_flow.py)
 
    - if/elif/else statements
    - for and while loops
    - Loop-else clause (unique Python feature!)
    - break and continue statements
 
-5. **[Functions & Scope](basic/05_functions_scope.py)**
+5. **Functions & Scope** — 📖 [docs](basic/05_functions_scope.md) · ▶️ [code](basic/05_functions_scope.py)
 
    - Function definition and calling
    - Parameters vs arguments
@@ -43,7 +59,7 @@ This comprehensive Python study guide covers all essential concepts from basic t
    - Local vs global scope
    - Lambda functions
 
-6. **[Lists & Dictionaries](basic/06_lists_dictionaries.py)**
+6. **Lists & Dictionaries** — 📖 [docs](basic/06_lists_dictionaries.md) · ▶️ [code](basic/06_lists_dictionaries.py)
 
    - List operations and methods
    - List comprehensions
@@ -51,14 +67,14 @@ This comprehensive Python study guide covers all essential concepts from basic t
    - Dictionary comprehensions
    - Nested structures
 
-7. **[Strings & Formatting](basic/07_strings_formatting.py)**
+7. **Strings & Formatting** — 📖 [docs](basic/07_strings_formatting.md) · ▶️ [code](basic/07_strings_formatting.py)
 
    - String methods and operations
    - String formatting (f-strings, .format(), % formatting)
    - String validation and manipulation
    - Escape characters and raw strings
 
-8. **[File I/O](basic/08_file_io.py)**
+8. **File I/O** — 📖 [docs](basic/08_file_io.md) · ▶️ [code](basic/08_file_io.py)
    - Opening and closing files
    - Reading and writing operations
    - Context managers (with statement)
@@ -66,14 +82,14 @@ This comprehensive Python study guide covers all essential concepts from basic t
 
 ### 📁 Intermediate Concepts
 
-9. **[Packaging & Virtual Environments](intermediate/09_packaging_venv.py)**
+9. **Packaging & Virtual Environments** — 📖 [docs](intermediate/09_packaging_venv.md) · ▶️ [code](intermediate/09_packaging_venv.py)
 
    - Virtual environments with venv
    - Package management with pip
    - requirements.txt
    - Package structure and distribution
 
-10. **[PEP 8 & Code Style](intermediate/10_pep8_code_style.py)**
+10. **PEP 8 & Code Style** — 📖 [docs](intermediate/10_pep8_code_style.md) · ▶️ [code](intermediate/10_pep8_code_style.py)
 
     - Official Python style guide
     - Naming conventions
@@ -81,7 +97,7 @@ This comprehensive Python study guide covers all essential concepts from basic t
     - Import organization
     - Tools for style checking
 
-11. **[OOP Fundamentals](intermediate/11_oop_fundamentals.py)**
+11. **OOP Fundamentals** — 📖 [docs](intermediate/11_oop_fundamentals.md) · ▶️ [code](intermediate/11_oop_fundamentals.py)
     - Class definition and instantiation
     - Constructor method (**init**)
     - Instance vs class variables
@@ -90,7 +106,7 @@ This comprehensive Python study guide covers all essential concepts from basic t
 
 ### 📁 Advanced Concepts
 
-12. **[OOP Principles](advanced/12_oop_principles.py)**
+12. **OOP Principles** — 📖 [docs](advanced/12_oop_principles.md) · ▶️ [code](advanced/12_oop_principles.py)
 
     - Inheritance and method overriding
     - Encapsulation (public, protected, private)
@@ -98,7 +114,7 @@ This comprehensive Python study guide covers all essential concepts from basic t
     - Multiple inheritance and MRO
     - Abstract classes and interfaces
 
-13. **[Magic Methods](advanced/13_magic_methods.py)**
+13. **Magic Methods** — 📖 [docs](advanced/13_magic_methods.md) · ▶️ [code](advanced/13_magic_methods.py)
 
     - String representation (**str**, **repr**)
     - Arithmetic operations (**add**, **sub**, etc.)
@@ -106,7 +122,7 @@ This comprehensive Python study guide covers all essential concepts from basic t
     - Container operations (**len**, **getitem**, etc.)
     - Context managers (**enter**, **exit**)
 
-14. **[Generators & Iteration](advanced/14_generators_iteration.py)**
+14. **Generators & Iteration** — 📖 [docs](advanced/14_generators_iteration.md) · ▶️ [code](advanced/14_generators_iteration.py)
 
     - Generator functions with yield
     - Generator expressions
@@ -114,7 +130,7 @@ This comprehensive Python study guide covers all essential concepts from basic t
     - Memory efficiency and lazy evaluation
     - yield from and generator delegation
 
-15. **[Regular Expressions](advanced/15_regular_expressions.py)**
+15. **Regular Expressions** — 📖 [docs](advanced/15_regular_expressions.md) · ▶️ [code](advanced/15_regular_expressions.py)
 
     - Pattern matching with re module
     - Common regex patterns and metacharacters
@@ -122,7 +138,7 @@ This comprehensive Python study guide covers all essential concepts from basic t
     - Text validation and extraction
     - Practical applications
 
-16. **[Asynchronous I/O](advanced/16_async_io.py)**
+16. **Asynchronous I/O** — 📖 [docs](advanced/16_async_io.md) · ▶️ [code](advanced/16_async_io.py)
     - async/await syntax
     - Event loop and coroutines
     - Concurrent vs parallel execution
@@ -141,8 +157,10 @@ This comprehensive Python study guide covers all essential concepts from basic t
 ### 1. **Sequential Learning Path**
 
 ```
-Basic (1-8) → Intermediate (9-11) → Advanced (12-16) → Practice (17)
+Setup → Basic (1-8) → Intermediate (9-11) → Advanced (12-16) → Practice (17)
 ```
+
+> 📖 **Tip:** For each topic, read the `.md` doc first to learn the concept, then run the `.py` file to see it in action — and try the exercises at the end of each doc.
 
 ### 2. **Daily Study Plan**
 

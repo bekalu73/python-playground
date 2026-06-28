@@ -49,6 +49,7 @@ print(f"Sum of 1, 2, 3, 4, 5: {sum_numbers(1, 2, 3, 4, 5)}")
 def print_info(name, *subjects):
     """Mix regular parameter with *args"""
     print(f"Student: {name}")
+    print(f"Subjects: {subjects}")
     print("Subjects:", end=" ")
     for subject in subjects:
         print(subject, end=" ")
