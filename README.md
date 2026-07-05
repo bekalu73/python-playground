@@ -147,7 +147,12 @@ New to Python? Set up your development environment first.
 
 ### 📁 Practice Questions
 
-17. **[Complete Practice Set](practice/practice_questions.py)**
+17. **[Basic Practice Set](practice/basic_practice.py)**
+    - 20 questions covering data types, operators, control flow, strings, lists, dicts
+    - Tests included — run and verify your answers
+    - Great starting point before attempting the full practice set
+
+18. **[Complete Practice Set](practice/practice_questions.py)**
     - All roadmap practice questions with solutions
     - Comprehensive examples combining multiple concepts
     - Real-world applications
