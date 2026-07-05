@@ -150,9 +150,16 @@ New to Python? Set up your development environment first.
 17. **[Basic Practice Set](practice/basic_practice.py)**
     - 20 questions covering data types, operators, control flow, strings, lists, dicts
     - Tests included — run and verify your answers
-    - Great starting point before attempting the full practice set
 
-18. **[Complete Practice Set](practice/practice_questions.py)**
+18. **[Intermediate Practice Set](practice/intermediate_practice.py)**
+    - 8 questions covering @property, @classmethod, composition, custom exceptions, encapsulation
+    - Tests included — run and verify your answers
+
+19. **[Advanced Practice Set](practice/advanced_practice.py)**
+    - 10 questions covering inheritance, magic methods, generators, regex, context managers, decorators, async, MRO
+    - Tests included — run and verify your answers
+
+20. **[Complete Practice Set](practice/practice_questions.py)**
     - All roadmap practice questions with solutions
     - Comprehensive examples combining multiple concepts
     - Real-world applications
