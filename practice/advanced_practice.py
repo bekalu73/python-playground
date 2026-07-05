@@ -388,6 +388,384 @@ print("Q10 PASSED: MRO")
 
 
 # ---------------------------------------------------------------------------
+# QUESTION 11: SINGLETON WITH __NEW__
+# ---------------------------------------------------------------------------
+"""
+Create a Singleton class that only ever creates one instance.
+Use __new__ to enforce the singleton pattern.
+"""
+class Singleton:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def __init__(self, value=None):
+        if value is not None:
+            self.value = value
+
+# Tests
+s1 = Singleton("first")
+s2 = Singleton("second")
+assert s1 is s2
+assert s1.value == "second"  # second __init__ overwrites
+s1.value = "changed"
+assert s2.value == "changed"
+print("Q11 PASSED: Singleton")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 12: CALLABLE CLASS (__call__)
+# ---------------------------------------------------------------------------
+"""
+Create a FunctionCounter class that wraps a function and counts how many times
+it has been called. The instance itself is callable via __call__.
+Example:
+    counter = FunctionCounter(print)
+    counter("hello")  # calls print, count becomes 1
+    counter.count     # 1
+"""
+class FunctionCounter:
+    def __init__(self, func):
+        self.func = func
+        self.count = 0
+
+    def __call__(self, *args, **kwargs):
+        self.count += 1
+        return self.func(*args, **kwargs)
+
+# Tests
+results = []
+def track(x):
+    results.append(x)
+
+counter = FunctionCounter(track)
+counter("a")
+counter("b")
+counter("c")
+assert counter.count == 3
+assert results == ["a", "b", "c"]
+assert callable(counter) is True
+print("Q12 PASSED: FunctionCounter")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 13: __SLOTS__ FOR MEMORY EFFICIENCY
+# ---------------------------------------------------------------------------
+"""
+Create a Point class using __slots__ to restrict attributes to x and y only.
+This saves memory and prevents setting unexpected attributes.
+"""
+class Point:
+    __slots__ = ("x", "y")
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+# Tests
+p = Point(10, 20)
+assert p.x == 10
+assert p.y == 20
+p.x = 30
+assert p.x == 30
+
+try:
+    p.z = 50
+    assert False, "Should raise AttributeError"
+except AttributeError:
+    pass
+
+assert hasattr(p, "__slots__")
+print("Q13 PASSED: __slots__")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 14: CUSTOM CONTAINER (__getitem__, __setitem__, __len__, __iter__)
+# ---------------------------------------------------------------------------
+"""
+Create a SimpleArray class that acts like a fixed-size list.
+- __init__(size, default=0)
+- __getitem__(index)
+- __setitem__(index, value)
+- __len__()
+- __iter__() — yields all elements
+"""
+class SimpleArray:
+    def __init__(self, size, default=0):
+        self._data = [default] * size
+
+    def __getitem__(self, index):
+        return self._data[index]
+
+    def __setitem__(self, index, value):
+        self._data[index] = value
+
+    def __len__(self):
+        return len(self._data)
+
+    def __iter__(self):
+        return iter(self._data)
+
+# Tests
+arr = SimpleArray(5, default=0)
+assert len(arr) == 5
+assert arr[0] == 0
+arr[1] = 10
+arr[3] = 30
+assert arr[1] == 10
+assert arr[3] == 30
+assert list(arr) == [0, 10, 0, 30, 0]
+
+try:
+    arr[10] = 99
+    assert False, "Should raise IndexError"
+except IndexError:
+    pass
+print("Q14 PASSED: SimpleArray")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 15: CUSTOM ITERATOR (__iter__, __next__)
+# ---------------------------------------------------------------------------
+"""
+Create a Countdown iterator that counts down from n to 1.
+Example:
+    for i in Countdown(3):
+        print(i)  # 3, 2, 1
+"""
+class Countdown:
+    def __init__(self, start):
+        self.start = start
+
+    def __iter__(self):
+        self.current = self.start
+        return self
+
+    def __next__(self):
+        if self.current < 1:
+            raise StopIteration
+        value = self.current
+        self.current -= 1
+        return value
+
+# Tests
+cd = Countdown(3)
+result = list(cd)
+assert result == [3, 2, 1]
+
+cd2 = Countdown(1)
+assert list(cd2) == [1]
+
+cd3 = Countdown(0)
+assert list(cd3) == []
+print("Q15 PASSED: Countdown")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 16: MEMOIZATION WITH functools.lru_cache
+# ---------------------------------------------------------------------------
+"""
+Use the @lru_cache decorator to memoize a recursive Fibonacci function.
+Then demonstrate that cached calls are faster.
+"""
+import functools
+
+@functools.lru_cache(maxsize=None)
+def fib_cached(n):
+    if n < 2:
+        return n
+    return fib_cached(n - 1) + fib_cached(n - 2)
+
+# Also write a standalone memoize decorator
+def memoize(func):
+    cache = {}
+    @functools.wraps(func)
+    def wrapper(*args):
+        if args not in cache:
+            cache[args] = func(*args)
+        return cache[args]
+    wrapper.cache = cache
+    return wrapper
+
+@memoize
+def fib_memoized(n):
+    if n < 2:
+        return n
+    return fib_memoized(n - 1) + fib_memoized(n - 2)
+
+# Tests
+assert fib_cached(10) == 55
+assert fib_cached(50) == 12586269025
+assert fib_cached.cache_info().hits > 0
+
+assert fib_memoized(10) == 55
+assert fib_memoized(30) == 832040
+assert fib_memoized.cache[(30,)] == 832040  # now memoized
+print("Q16 PASSED: memoization")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 17: CLOSURES & FACTORY FUNCTIONS
+# ---------------------------------------------------------------------------
+"""
+Write a multiplier factory function that takes a factor and returns
+a function that multiplies its input by that factor.
+"""
+def multiplier(factor):
+    def multiply(x):
+        return x * factor
+    return multiply
+
+# Also write a counter factory using closures
+def make_counter(start=0):
+    count = start
+    def counter():
+        nonlocal count
+        current = count
+        count += 1
+        return current
+    return counter
+
+# Tests
+double = multiplier(2)
+triple = multiplier(3)
+assert double(5) == 10
+assert triple(5) == 15
+
+counter_a = make_counter(0)
+counter_b = make_counter(10)
+assert counter_a() == 0
+assert counter_a() == 1
+assert counter_b() == 10
+assert counter_b() == 11
+assert counter_a() == 2
+print("Q17 PASSED: closures")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 18: ASYNC GENERATOR
+# ---------------------------------------------------------------------------
+"""
+Write an async generator that yields numbers with a delay.
+async for num in async_range(5, delay=0.01):
+    print(num)  # 0, 1, 2, 3, 4 (each after 10ms delay)
+"""
+async def async_range(n, delay=0.01):
+    for i in range(n):
+        await asyncio.sleep(delay)
+        yield i
+
+async def _test_async_gen():
+    result = []
+    async for num in async_range(5, delay=0.005):
+        result.append(num)
+    assert result == [0, 1, 2, 3, 4]
+
+    result2 = []
+    async for num in async_range(0):
+        result2.append(num)
+    assert result2 == []
+
+asyncio.run(_test_async_gen())
+print("Q18 PASSED: async generator")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 19: ADVANCED CONTEXT MANAGER (DB TRANSACTION SIM)
+# ---------------------------------------------------------------------------
+"""
+Create a Transaction context manager that simulates a database transaction.
+- On __enter__: begin transaction
+- On __exit__: commit if no exception, rollback if exception
+- Methods: execute(sql) — queues operations
+"""
+class Transaction:
+    def __init__(self, db_name="default"):
+        self.db_name = db_name
+        self.operations = []
+
+    def execute(self, sql):
+        self.operations.append(sql)
+
+    def __enter__(self):
+        print(f"  [BEGIN] Transaction on {self.db_name}")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type is None:
+            print(f"  [COMMIT] {len(self.operations)} operations")
+        else:
+            print(f"  [ROLLBACK] due to {exc_type.__name__}: {exc_val}")
+        return False  # don't suppress exceptions
+
+# Tests
+tx = Transaction("test_db")
+with tx:
+    tx.execute("INSERT INTO users (name) VALUES ('Alice')")
+    tx.execute("UPDATE users SET name='Bob' WHERE id=1")
+assert tx.operations == [
+    "INSERT INTO users (name) VALUES ('Alice')",
+    "UPDATE users SET name='Bob' WHERE id=1",
+]
+
+tx2 = Transaction("failing_db")
+try:
+    with tx2:
+        tx2.execute("INSERT INTO users (name) VALUES ('Charlie')")
+        raise RuntimeError("Connection lost")
+except RuntimeError:
+    assert len(tx2.operations) == 1
+print("Q19 PASSED: Transaction context manager")
+
+
+# ---------------------------------------------------------------------------
+# QUESTION 20: ATTRIBUTE INTERCEPTION (__getattr__, __setattr__)
+# ---------------------------------------------------------------------------
+"""
+Create a DynamicConfig class that stores arbitrary attributes in an internal dict.
+- __getattr__: retrieves from internal dict, returns None for missing keys
+- __setattr__: stores in internal dict (but _data itself goes to instance __dict__)
+- __repr__: shows all stored config
+"""
+class DynamicConfig:
+    def __init__(self, **kwargs):
+        object.__setattr__(self, "_data", {})
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+    def __getattr__(self, name):
+        if name.startswith("_"):
+            raise AttributeError(name)
+        return self._data.get(name, None)
+
+    def __setattr__(self, name, value):
+        self._data[name] = value
+
+    def __repr__(self):
+        items = ", ".join(f"{k}={v!r}" for k, v in self._data.items())
+        return f"DynamicConfig({items})"
+
+# Tests
+cfg = DynamicConfig(host="localhost", port=8080)
+assert cfg.host == "localhost"
+assert cfg.port == 8080
+assert cfg.missing is None
+
+cfg.port = 9090
+assert cfg.port == 9090
+assert "host" in repr(cfg)
+assert "9090" in repr(cfg)
+
+# _data is stored in instance __dict__ via object.__setattr__
+assert "_data" in object.__getattribute__(cfg, "__dict__")
+
+print("Q20 PASSED: DynamicConfig")
+
+
+# ---------------------------------------------------------------------------
 # SUMMARY
 # ---------------------------------------------------------------------------
 print()
@@ -404,3 +782,13 @@ print("  - Context managers (__enter__, __exit__)")
 print("  - Decorators (retry with arguments)")
 print("  - Async IO (wait_for, gather, timeout)")
 print("  - Multiple inheritance & MRO")
+print("  - Singleton pattern (__new__)")
+print("  - Callable objects (__call__)")
+print("  - __slots__ for memory efficiency")
+print("  - Custom containers (__getitem__, __setitem__, __len__, __iter__)")
+print("  - Custom iterators (__iter__, __next__)")
+print("  - Memoization (lru_cache, custom decorator)")
+print("  - Closures & factory functions")
+print("  - Async generators (async for)")
+print("  - Advanced context managers (commit/rollback)")
+print("  - Attribute interception (__getattr__, __setattr__)")
