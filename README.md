@@ -261,14 +261,11 @@ Continue your Python journey with:
 - **Automation**: Selenium, Beautiful Soup, Requests
 - **Desktop Apps**: Tkinter, PyQt, Kivy
 
-## 📞 Need Help?
+## Contributing
 
-If you encounter any issues or have questions:
+Contributions are welcome! Whether it's fixing a typo, adding a new topic, or improving examples -- check out [CONTRIBUTING.md](.github/CONTRIBUTING.md) to get started.
 
-1. Check the comments in each file for explanations
-2. Run the code to see examples in action
-3. Practice the concepts with your own variations
-4. Review the "Exam Focus" sections in each file
+Browse [open issues](https://github.com/bekalu73/python-playground/issues) or look for `good first issue` and `help wanted` labels.
 
 ---
 
